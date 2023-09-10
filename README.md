@@ -8,7 +8,6 @@ This library is a singleton, assuming you will never need to have multiple RealD
 - [ ] /disable_access_token
 - [ ] /time
 - [ ] /time/iso
-
 - [x] /user
 
 /unrestrict
