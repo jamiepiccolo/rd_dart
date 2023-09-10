@@ -4,7 +4,10 @@ This library is a singleton, assuming you will never need to have multiple RealD
 
 <details>
     <summary>Implemented Methods</summary>
+<<<<<<< HEAD
     
+=======
+>>>>>>> d4b3ee9683658cf9ab272af16c7adf9d2e6edd2f
 - [ ] /disable_access_token
 - [ ] /time
 - [ ] /time/iso
