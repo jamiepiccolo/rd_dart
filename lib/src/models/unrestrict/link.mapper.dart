@@ -29,18 +29,60 @@ class RealDebridUnrestrictLinkMapper
   static String _$id(RealDebridUnrestrictLink v) => v.id;
   static const Field<RealDebridUnrestrictLink, String> _f$id =
       Field('id', _$id);
-  static String _$uri(RealDebridUnrestrictLink v) => v.uri;
-  static const Field<RealDebridUnrestrictLink, String> _f$uri =
-      Field('uri', _$uri);
+  static String _$filename(RealDebridUnrestrictLink v) => v.filename;
+  static const Field<RealDebridUnrestrictLink, String> _f$filename =
+      Field('filename', _$filename);
+  static String _$mimeType(RealDebridUnrestrictLink v) => v.mimeType;
+  static const Field<RealDebridUnrestrictLink, String> _f$mimeType =
+      Field('mimeType', _$mimeType);
+  static int _$filesize(RealDebridUnrestrictLink v) => v.filesize;
+  static const Field<RealDebridUnrestrictLink, int> _f$filesize =
+      Field('filesize', _$filesize);
+  static String _$link(RealDebridUnrestrictLink v) => v.link;
+  static const Field<RealDebridUnrestrictLink, String> _f$link =
+      Field('link', _$link);
+  static String _$host(RealDebridUnrestrictLink v) => v.host;
+  static const Field<RealDebridUnrestrictLink, String> _f$host =
+      Field('host', _$host);
+  static int _$chunks(RealDebridUnrestrictLink v) => v.chunks;
+  static const Field<RealDebridUnrestrictLink, int> _f$chunks =
+      Field('chunks', _$chunks);
+  static int _$crc(RealDebridUnrestrictLink v) => v.crc;
+  static const Field<RealDebridUnrestrictLink, int> _f$crc =
+      Field('crc', _$crc);
+  static String _$download(RealDebridUnrestrictLink v) => v.download;
+  static const Field<RealDebridUnrestrictLink, String> _f$download =
+      Field('download', _$download);
+  static int _$streamable(RealDebridUnrestrictLink v) => v.streamable;
+  static const Field<RealDebridUnrestrictLink, int> _f$streamable =
+      Field('streamable', _$streamable);
 
   @override
   final Map<Symbol, Field<RealDebridUnrestrictLink, dynamic>> fields = const {
     #id: _f$id,
-    #uri: _f$uri,
+    #filename: _f$filename,
+    #mimeType: _f$mimeType,
+    #filesize: _f$filesize,
+    #link: _f$link,
+    #host: _f$host,
+    #chunks: _f$chunks,
+    #crc: _f$crc,
+    #download: _f$download,
+    #streamable: _f$streamable,
   };
 
   static RealDebridUnrestrictLink _instantiate(DecodingData data) {
-    return RealDebridUnrestrictLink(id: data.dec(_f$id), uri: data.dec(_f$uri));
+    return RealDebridUnrestrictLink(
+        id: data.dec(_f$id),
+        filename: data.dec(_f$filename),
+        mimeType: data.dec(_f$mimeType),
+        filesize: data.dec(_f$filesize),
+        link: data.dec(_f$link),
+        host: data.dec(_f$host),
+        chunks: data.dec(_f$chunks),
+        crc: data.dec(_f$crc),
+        download: data.dec(_f$download),
+        streamable: data.dec(_f$streamable));
   }
 
   @override
@@ -100,7 +142,17 @@ abstract class RealDebridUnrestrictLinkCopyWith<
     $R,
     $In extends RealDebridUnrestrictLink,
     $Out> implements ClassCopyWith<$R, $In, $Out> {
-  $R call({String? id, String? uri});
+  $R call(
+      {String? id,
+      String? filename,
+      String? mimeType,
+      int? filesize,
+      String? link,
+      String? host,
+      int? chunks,
+      int? crc,
+      String? download,
+      int? streamable});
   RealDebridUnrestrictLinkCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(
       Then<$Out2, $R2> t);
 }
@@ -115,11 +167,41 @@ class _RealDebridUnrestrictLinkCopyWithImpl<$R, $Out>
   late final ClassMapperBase<RealDebridUnrestrictLink> $mapper =
       RealDebridUnrestrictLinkMapper.ensureInitialized();
   @override
-  $R call({String? id, String? uri}) => $apply(
-      FieldCopyWithData({if (id != null) #id: id, if (uri != null) #uri: uri}));
+  $R call(
+          {String? id,
+          String? filename,
+          String? mimeType,
+          int? filesize,
+          String? link,
+          String? host,
+          int? chunks,
+          int? crc,
+          String? download,
+          int? streamable}) =>
+      $apply(FieldCopyWithData({
+        if (id != null) #id: id,
+        if (filename != null) #filename: filename,
+        if (mimeType != null) #mimeType: mimeType,
+        if (filesize != null) #filesize: filesize,
+        if (link != null) #link: link,
+        if (host != null) #host: host,
+        if (chunks != null) #chunks: chunks,
+        if (crc != null) #crc: crc,
+        if (download != null) #download: download,
+        if (streamable != null) #streamable: streamable
+      }));
   @override
   RealDebridUnrestrictLink $make(CopyWithData data) => RealDebridUnrestrictLink(
-      id: data.get(#id, or: $value.id), uri: data.get(#uri, or: $value.uri));
+      id: data.get(#id, or: $value.id),
+      filename: data.get(#filename, or: $value.filename),
+      mimeType: data.get(#mimeType, or: $value.mimeType),
+      filesize: data.get(#filesize, or: $value.filesize),
+      link: data.get(#link, or: $value.link),
+      host: data.get(#host, or: $value.host),
+      chunks: data.get(#chunks, or: $value.chunks),
+      crc: data.get(#crc, or: $value.crc),
+      download: data.get(#download, or: $value.download),
+      streamable: data.get(#streamable, or: $value.streamable));
 
   @override
   RealDebridUnrestrictLinkCopyWith<$R2, RealDebridUnrestrictLink, $Out2>

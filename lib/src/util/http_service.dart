@@ -16,6 +16,7 @@ class HttpService {
 
   Future<String> getUrl(Uri url,
       {Map<String, String> headers = const {}}) async {
+    print(url);
     _calls++;
     _ongoingCallsCount++;
     String? body;
@@ -38,14 +39,14 @@ class HttpService {
 
       var error = RealDebridErrorMapper.deserialize(resBody);
       throw RealDebridError.fromErrorCode(
-          error: "${error.error} | ${url.path} (${res.statusCode})",
+          error: "Get: ${error.error} | ${url.path} (${res.statusCode})",
           errorCode: error.errorCode);
     } catch (e) {
       if (e is RealDebridError) {
         rethrow;
       }
       throw RealDebridError.unknownError(
-          error: "$e${body == null ? "" : "  $body"}");
+          error: "Get: $e${body == null ? "" : "  $body"} ${url.path}");
     }
   }
 
@@ -62,26 +63,32 @@ class HttpService {
           )
           .whenComplete(_handleCallComplete);
       req.headers.set('content-type', 'application/x-www-form-urlencoded');
-      req.write(Uri(queryParameters: reqBody).query);
       headers.forEach((key, value) {
         req.headers.set(key, value);
       });
+      req.write(Uri(queryParameters: reqBody).query);
+
       var res = await req.close();
+      if (res.statusCode == HttpStatus.noContent) {
+        return "";
+      }
       var resBody = await res.transform(utf8.decoder).join();
-      if (res.statusCode == HttpStatus.ok) {
+      if (res.statusCode == HttpStatus.ok ||
+          res.statusCode == HttpStatus.created) {
         return resBody;
       }
       body = resBody;
       var error = RealDebridErrorMapper.deserialize(resBody);
       throw RealDebridError.fromErrorCode(
-          error: "${error.error} | ${url.path} (${res.statusCode})",
+          error: "Post: ${error.error} | ${url.path} (${res.statusCode})",
           errorCode: error.errorCode);
     } catch (e) {
       if (e is RealDebridError) {
         rethrow;
       }
+      print("uwu uwu");
       throw RealDebridError.unknownError(
-          error: "$e${body == null ? "" : " $body"}");
+          error: "Post: $e${body == null ? "" : " $body"} ${url.path}");
     }
   }
 

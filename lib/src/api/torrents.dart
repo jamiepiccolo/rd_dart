@@ -9,7 +9,7 @@ class Torrents {
     return _realDebrid._genericRequest(
         path: "rest/1.0/torrents/instantAvailability/${hashes.join('/')}",
         headers: {"Authorization": "Bearer ${_realDebrid.accessToken}"},
-        deserialize: RealDebridTorrentInstantAvailabilityMapper.deserialize);
+        deserialize: RealDebridTorrentInstantAvailability.deserialize);
   }
 
   Future<RealDebridTorrentAddMagnet> addMagnet({required String magnet}) async {
@@ -23,7 +23,7 @@ class Torrents {
   Future<bool> selectFiles(
       {required String id, required List<String> files}) async {
     return _realDebrid._genericRequest(
-        path: "rest/1.0/torrents/selectFiles/$id}",
+        path: "rest/1.0/torrents/selectFiles/$id",
         headers: {"Authorization": "Bearer ${_realDebrid.accessToken}"},
         reqBody: {"files": files.join(',')},
         deserialize: null);
@@ -31,7 +31,7 @@ class Torrents {
 
   Future<RealDebridTorrentInfo> info({required String id}) async {
     return _realDebrid._genericRequest(
-        path: "rest/1.0/torrents/info/$id}",
+        path: "rest/1.0/torrents/info/$id",
         headers: {"Authorization": "Bearer ${_realDebrid.accessToken}"},
         deserialize: RealDebridTorrentInfoMapper.deserialize);
   }
