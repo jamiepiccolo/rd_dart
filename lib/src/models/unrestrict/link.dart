@@ -7,7 +7,7 @@ class RealDebridUnrestrictLink with RealDebridUnrestrictLinkMappable {
   final String id;
   final String filename;
   @MappableField(key: "mimeType")
-  final String mimeType;
+  final String? mimeType;
   final int filesize;
   final String link;
   final String host;

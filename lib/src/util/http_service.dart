@@ -16,7 +16,6 @@ class HttpService {
 
   Future<String> getUrl(Uri url,
       {Map<String, String> headers = const {}}) async {
-    print(url);
     _calls++;
     _ongoingCallsCount++;
     String? body;
@@ -86,7 +85,6 @@ class HttpService {
       if (e is RealDebridError) {
         rethrow;
       }
-      print("uwu uwu");
       throw RealDebridError.unknownError(
           error: "Post: $e${body == null ? "" : " $body"} ${url.path}");
     }

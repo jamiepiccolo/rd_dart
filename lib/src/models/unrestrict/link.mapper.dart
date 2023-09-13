@@ -32,7 +32,7 @@ class RealDebridUnrestrictLinkMapper
   static String _$filename(RealDebridUnrestrictLink v) => v.filename;
   static const Field<RealDebridUnrestrictLink, String> _f$filename =
       Field('filename', _$filename);
-  static String _$mimeType(RealDebridUnrestrictLink v) => v.mimeType;
+  static String? _$mimeType(RealDebridUnrestrictLink v) => v.mimeType;
   static const Field<RealDebridUnrestrictLink, String> _f$mimeType =
       Field('mimeType', _$mimeType);
   static int _$filesize(RealDebridUnrestrictLink v) => v.filesize;
@@ -170,7 +170,7 @@ class _RealDebridUnrestrictLinkCopyWithImpl<$R, $Out>
   $R call(
           {String? id,
           String? filename,
-          String? mimeType,
+          Object? mimeType = $none,
           int? filesize,
           String? link,
           String? host,
@@ -181,7 +181,7 @@ class _RealDebridUnrestrictLinkCopyWithImpl<$R, $Out>
       $apply(FieldCopyWithData({
         if (id != null) #id: id,
         if (filename != null) #filename: filename,
-        if (mimeType != null) #mimeType: mimeType,
+        if (mimeType != $none) #mimeType: mimeType,
         if (filesize != null) #filesize: filesize,
         if (link != null) #link: link,
         if (host != null) #host: host,
